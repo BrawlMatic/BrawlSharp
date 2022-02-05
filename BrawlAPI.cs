@@ -68,6 +68,19 @@ namespace BrawlSharp
             }
         }
 
+        public async Task<ClubLeaderboard> GetClubLeaderboardAsync(string country = "global")
+        {
+            try
+            {
+                return await client.GetJsonAsync<ClubLeaderboard>($"/rankings/{country}/clubs");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
         public async Task<PlayerLeaderboard> GetBrawlerLeaderboardAsync(int brawler, string country = "global")
         {
             try
@@ -81,11 +94,24 @@ namespace BrawlSharp
             }
         }
 
-        public async Task<ClubLeaderboard> GetClubLeaderboardAsync(string country = "global")
+        public async Task<AllBrawlers> GetBrawlersAsync()
         {
             try
             {
-                return await client.GetJsonAsync<ClubLeaderboard>($"/rankings/{country}/clubs");
+                return await client.GetJsonAsync<AllBrawlers>("/brawlers");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public async Task<Brawler> GetBrawlerAsync(int brawler)
+        {
+            try
+            {
+                return await client.GetJsonAsync<Brawler>($"/brawlers/{brawler}");
             }
             catch (Exception ex)
             {
