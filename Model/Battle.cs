@@ -8,25 +8,13 @@ namespace BrawlSharp.Model
         public string Date { get; set; }
 
         [JsonPropertyName("event")]
-        public Event Event { get; set; }
+        public Map Map { get; set; }
 
         [JsonPropertyName("battle")]
-        public BattleData Match { get; set; }
+        public Match Match { get; set; }
     }
 
-    public partial class Event
-    {
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
-
-        [JsonPropertyName("mode")]
-        public string Mode { get; set; }
-
-        [JsonPropertyName("map")]
-        public string Map { get; set; }
-    }
-
-    public partial class BattleData
+    public partial class Match
     {
         [JsonPropertyName("mode")]
         public string Mode { get; set; }

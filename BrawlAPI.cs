@@ -93,5 +93,18 @@ namespace BrawlSharp
                 return null;
             }
         }
+
+        public async Task<Event[]> GetEventsAsync()
+        {
+            try
+            {
+                return await client.GetJsonAsync<Event[]>("/events/rotation");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
     }
 }
