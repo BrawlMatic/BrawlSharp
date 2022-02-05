@@ -9,5 +9,23 @@ namespace BrawlSharp.Model
 
         [JsonPropertyName("name")]
         public string Name { get; set; }
+
+        [JsonPropertyName("description")]
+        public string Description { get; set; }
+
+        [JsonPropertyName("type")]
+        public string Type { get; set; }
+
+        [JsonPropertyName("badgeId")]
+        public int BadgeId { get; set; }
+
+        [JsonPropertyName("requiredTrophies")]
+        public int RequiredTrophies { get; set; }
+
+        [JsonPropertyName("trophies")]
+        public int Trophies { get; set; }
+
+        [JsonPropertyName("members")]
+        public Player[] Members { get; set; }
     }
 }

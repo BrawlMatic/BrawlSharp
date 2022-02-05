@@ -41,5 +41,18 @@ namespace BrawlSharp
                 return null;
             }
         }
+
+        public async Task<Club> GetClubAsync(string tag)
+        {
+            try
+            {
+                return await client.GetJsonAsync<Club>($"/clubs/%23{tag}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
     }
 }

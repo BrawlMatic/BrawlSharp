@@ -13,6 +13,9 @@ namespace BrawlSharp.Model
         [JsonPropertyName("nameColor")]
         public string NameColor { get; set; }
 
+        [JsonPropertyName("role")]
+        public string Role { get; set; }
+
         [JsonPropertyName("icon")]
         public PlayerIcon Icon { get; set; }
 
