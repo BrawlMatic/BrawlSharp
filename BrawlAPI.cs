@@ -54,5 +54,44 @@ namespace BrawlSharp
                 return null;
             }
         }
+
+        public async Task<PlayerLeaderboard> GetPlayerLeaderboardAsync(string country = "global")
+        {
+            try
+            {
+                return await client.GetJsonAsync<PlayerLeaderboard>($"/rankings/{country}/players");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public async Task<PlayerLeaderboard> GetBrawlerLeaderboardAsync(int brawler, string country = "global")
+        {
+            try
+            {
+                return await client.GetJsonAsync<PlayerLeaderboard>($"/rankings/{country}/brawlers/{brawler}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public async Task<ClubLeaderboard> GetClubLeaderboardAsync(string country = "global")
+        {
+            try
+            {
+                return await client.GetJsonAsync<ClubLeaderboard>($"/rankings/{country}/clubs");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
     }
 }

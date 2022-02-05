@@ -19,6 +19,9 @@ namespace BrawlSharp.Model
         [JsonPropertyName("badgeId")]
         public int BadgeId { get; set; }
 
+        [JsonPropertyName("rank")]
+        public int Rank { get; set; }
+
         [JsonPropertyName("requiredTrophies")]
         public int RequiredTrophies { get; set; }
 
@@ -27,5 +30,8 @@ namespace BrawlSharp.Model
 
         [JsonPropertyName("members")]
         public Player[] Members { get; set; }
+
+        [JsonPropertyName("memberCount")]
+        public int MemberCount { get; set; }
     }
 }
