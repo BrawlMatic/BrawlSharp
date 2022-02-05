@@ -2,7 +2,7 @@
 
 namespace BrawlSharp.Model
 {
-    public partial class Player
+    public class Player
     {
         [JsonPropertyName("tag")]
         public string Tag { get; set; }
@@ -14,7 +14,7 @@ namespace BrawlSharp.Model
         public string NameColor { get; set; }
 
         [JsonPropertyName("icon")]
-        public Icon Icon { get; set; }
+        public PlayerIcon Icon { get; set; }
 
         [JsonPropertyName("trophies")]
         public int Trophies { get; set; }
@@ -54,20 +54,5 @@ namespace BrawlSharp.Model
 
         [JsonPropertyName("brawlers")]
         public Brawler[] Brawlers { get; set; }
-    }
-
-    public partial class Icon
-    {
-        [JsonPropertyName("id")]
-        public int Id { get; set; }
-    }
-
-    public partial class Club
-    {
-        [JsonPropertyName("tag")]
-        public string Tag { get; set; }
-
-        [JsonPropertyName("name")]
-        public string Name { get; set; }
     }
 }

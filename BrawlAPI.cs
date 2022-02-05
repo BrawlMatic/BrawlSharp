@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BrawlSharp
 {
-    class BrawlAPI
+    public class BrawlAPI
     {
         RestClient client;
 
@@ -21,6 +21,19 @@ namespace BrawlSharp
             try
             {
                 return await client.GetJsonAsync<Player>($"/players/%23{tag}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return null;
+            }
+        }
+
+        public async Task<PlayerBattleLog> GetPlayerBattleLogAsync(string tag)
+        {
+            try
+            {
+                return await client.GetJsonAsync<PlayerBattleLog>($"/players/%23{tag}/battlelog");
             }
             catch (Exception ex)
             {
