@@ -4,28 +4,28 @@ A powerful C# library for interacting with the Brawl Stars API.
 ## Installation
 Install using the Package Manager Console in Visual Studio.
 ```ps
-    Install-Package BrawlMatic.API.BrawlSharp
+Install-Package BrawlMatic.API.BrawlSharp
 ```
 
 ## Usage
 ```cs
-    var client = new BrawlAPI("<token>");
+var client = new BrawlAPI("<token>");
     
-    var player = await client.GetPlayerAsync("2L8Q9GRC");
-    Console.WriteLine(player.Name); //Tweenky
-    Console.WriteLine(player.HighestTrophies); //25620
+var player = await client.GetPlayerAsync("2L8Q9GRC");
+Console.WriteLine(player.Name); //Tweenky
+Console.WriteLine(player.HighestTrophies); //25620
 
-    var club = await client.GetClubAsync("8L8Q0VLR");
-    Console.WriteLine(club.RequiredTrophies); //10000
-    Console.WriteLine(club.Members.Length); //24
+var club = await client.GetClubAsync("8L8Q0VLR");
+Console.WriteLine(club.RequiredTrophies); //10000
+Console.WriteLine(club.Members.Length); //24
 
-    var leaderboard = await client.GetPlayerLeaderboardAsync();
-    Console.WriteLine(leaderboard.Players[0].Trophies); //65122
-    Console.WriteLine(leaderboard.Players[50].Club.Name); //Humble Grinders
+var leaderboard = await client.GetPlayerLeaderboardAsync();
+Console.WriteLine(leaderboard.Players[0].Trophies); //65122
+Console.WriteLine(leaderboard.Players[50].Club.Name); //Humble Grinders
 
-    var brawler = await client.GetBrawlerAsync(16000005);
-    Console.WriteLine(brawler.Name); //SPIKE
-    Console.WriteLine(brawler.StarPowers[1].Name); //CURVEBALL
+var brawler = await client.GetBrawlerAsync(16000005);
+Console.WriteLine(brawler.Name); //SPIKE
+Console.WriteLine(brawler.StarPowers[1].Name); //CURVEBALL
 ```
 
 ## Support
