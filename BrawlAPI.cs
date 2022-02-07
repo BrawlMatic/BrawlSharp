@@ -12,7 +12,7 @@ namespace BrawlSharp
         public BrawlAPI(string token)
         {
             client = new RestClient("https://api.brawlstars.com/v1");
-            client.AddDefaultHeader("User-Agent", "BrawlSharp/1.0.0");
+            client.AddDefaultHeader("User-Agent", "BrawlSharp/1.0.1");
             client.AddDefaultHeader("Authorization", $"Bearer {token}");
         }
 
@@ -22,10 +22,9 @@ namespace BrawlSharp
             {
                 return await client.GetJsonAsync<Player>($"/players/%23{tag}");
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex);
-                return null;
+                throw;
             }
         }
 
@@ -35,10 +34,9 @@ namespace BrawlSharp
             {
                 return await client.GetJsonAsync<PlayerBattleLog>($"/players/%23{tag}/battlelog");
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex);
-                return null;
+                throw;
             }
         }
 
@@ -48,10 +46,9 @@ namespace BrawlSharp
             {
                 return await client.GetJsonAsync<Club>($"/clubs/%23{tag}");
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex);
-                return null;
+                throw;
             }
         }
 
@@ -61,10 +58,9 @@ namespace BrawlSharp
             {
                 return await client.GetJsonAsync<PlayerLeaderboard>($"/rankings/{country}/players");
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex);
-                return null;
+                throw;
             }
         }
 
@@ -74,10 +70,9 @@ namespace BrawlSharp
             {
                 return await client.GetJsonAsync<ClubLeaderboard>($"/rankings/{country}/clubs");
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex);
-                return null;
+                throw;
             }
         }
 
@@ -87,10 +82,9 @@ namespace BrawlSharp
             {
                 return await client.GetJsonAsync<PlayerLeaderboard>($"/rankings/{country}/brawlers/{brawler}");
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex);
-                return null;
+                throw;
             }
         }
 
@@ -100,10 +94,9 @@ namespace BrawlSharp
             {
                 return await client.GetJsonAsync<AllBrawlers>("/brawlers");
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex);
-                return null;
+                throw;
             }
         }
 
@@ -113,10 +106,9 @@ namespace BrawlSharp
             {
                 return await client.GetJsonAsync<Brawler>($"/brawlers/{brawler}");
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex);
-                return null;
+                throw;
             }
         }
 
@@ -126,10 +118,9 @@ namespace BrawlSharp
             {
                 return await client.GetJsonAsync<Event[]>("/events/rotation");
             }
-            catch (Exception ex)
+            catch
             {
-                Console.WriteLine(ex);
-                return null;
+                throw;
             }
         }
     }
