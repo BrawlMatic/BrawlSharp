@@ -1,6 +1,7 @@
-﻿using System.Text.Json.Serialization;
+﻿using BarwlSharp.Model.Player;
+using System.Text.Json.Serialization;
 
-namespace BrawlSharp.Model
+namespace BrawlSharp.Model.Player
 {
     public class Player
     {
@@ -14,13 +15,7 @@ namespace BrawlSharp.Model
         public string NameColor { get; set; }
 
         [JsonPropertyName("icon")]
-        public PlayerIcon Icon { get; set; }
-
-        [JsonPropertyName("role")]
-        public string Role { get; set; }
-
-        [JsonPropertyName("rank")]
-        public int Rank { get; set; }
+        public Icon Icon { get; set; }
 
         [JsonPropertyName("trophies")]
         public int Trophies { get; set; }

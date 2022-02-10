@@ -1,26 +1,28 @@
 ﻿using BrawlSharp.Model;
+using BrawlSharp.Model.Leaderboard;
+using BrawlSharp.Model.Player.BattleLog;
 using RestSharp;
-using System;
 using System.Threading.Tasks;
 
 namespace BrawlSharp
 {
-    public class BrawlAPI
+    public class BrawlSharpClient
     {
-        RestClient client;
+        readonly RestClient client;
 
-        public BrawlAPI(string token)
+        public BrawlSharpClient(string token)
         {
             client = new RestClient("https://api.brawlstars.com/v1");
-            client.AddDefaultHeader("User-Agent", "BrawlSharp/1.0.1");
+
+            client.AddDefaultHeader("User-Agent", "BrawlSharp/2.0.0");
             client.AddDefaultHeader("Authorization", $"Bearer {token}");
         }
 
-        public async Task<Player> GetPlayerAsync(string tag)
+        public async Task<Model.Player.Player> GetPlayerAsync(string tag)
         {
             try
             {
-                return await client.GetJsonAsync<Player>($"/players/%23{tag}");
+                return await client.GetJsonAsync<Model.Player.Player>($"/players/%23{tag}");
             }
             catch
             {
@@ -28,11 +30,11 @@ namespace BrawlSharp
             }
         }
 
-        public async Task<PlayerBattleLog> GetPlayerBattleLogAsync(string tag)
+        public async Task<BattleLog> GetPlayerBattleLogAsync(string tag)
         {
             try
             {
-                return await client.GetJsonAsync<PlayerBattleLog>($"/players/%23{tag}/battlelog");
+                return await client.GetJsonAsync<BattleLog>($"/players/%23{tag}/battlelog");
             }
             catch
             {
@@ -40,11 +42,11 @@ namespace BrawlSharp
             }
         }
 
-        public async Task<Club> GetClubAsync(string tag)
+        public async Task<Model.Club.Club> GetClubAsync(string tag)
         {
             try
             {
-                return await client.GetJsonAsync<Club>($"/clubs/%23{tag}");
+                return await client.GetJsonAsync<Model.Club.Club>($"/clubs/%23{tag}");
             }
             catch
             {
@@ -52,11 +54,11 @@ namespace BrawlSharp
             }
         }
 
-        public async Task<PlayerLeaderboard> GetPlayerLeaderboardAsync(string country = "global")
+        public async Task<PlayerRankings> GetPlayerLeaderboardAsync(string country = "global")
         {
             try
             {
-                return await client.GetJsonAsync<PlayerLeaderboard>($"/rankings/{country}/players");
+                return await client.GetJsonAsync<PlayerRankings>($"/rankings/{country}/players");
             }
             catch
             {
@@ -64,11 +66,11 @@ namespace BrawlSharp
             }
         }
 
-        public async Task<ClubLeaderboard> GetClubLeaderboardAsync(string country = "global")
+        public async Task<ClubRankings> GetClubLeaderboardAsync(string country = "global")
         {
             try
             {
-                return await client.GetJsonAsync<ClubLeaderboard>($"/rankings/{country}/clubs");
+                return await client.GetJsonAsync<ClubRankings>($"/rankings/{country}/clubs");
             }
             catch
             {
@@ -76,11 +78,11 @@ namespace BrawlSharp
             }
         }
 
-        public async Task<PlayerLeaderboard> GetBrawlerLeaderboardAsync(int brawler, string country = "global")
+        public async Task<PlayerRankings> GetBrawlerLeaderboardAsync(int brawler, string country = "global")
         {
             try
             {
-                return await client.GetJsonAsync<PlayerLeaderboard>($"/rankings/{country}/brawlers/{brawler}");
+                return await client.GetJsonAsync<PlayerRankings>($"/rankings/{country}/brawlers/{brawler}");
             }
             catch
             {
@@ -100,11 +102,11 @@ namespace BrawlSharp
             }
         }
 
-        public async Task<Brawler> GetBrawlerAsync(int brawler)
+        public async Task<Model.Brawler> GetBrawlerAsync(int brawler)
         {
             try
             {
-                return await client.GetJsonAsync<Brawler>($"/brawlers/{brawler}");
+                return await client.GetJsonAsync<Model.Brawler>($"/brawlers/{brawler}");
             }
             catch
             {

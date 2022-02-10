@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BrawlSharp.Model
+namespace BarwlSharp.Model.Player
 {
-    public class PlayerIcon
+    public class Icon
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }

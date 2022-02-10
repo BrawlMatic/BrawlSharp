@@ -1,16 +1,13 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BrawlSharp.Model
+namespace BrawlSharp.Model.BrawlerItem
 {
-    public class Map
+    public class StarPower
     {
         [JsonPropertyName("id")]
         public int Id { get; set; }
 
-        [JsonPropertyName("mode")]
-        public string Mode { get; set; }
-
-        [JsonPropertyName("map")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
     }
 }

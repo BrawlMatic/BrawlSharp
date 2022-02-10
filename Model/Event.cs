@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using BrawlSharp.Model.Player.BattleLog;
+using System.Text.Json.Serialization;
 
 namespace BrawlSharp.Model
 {

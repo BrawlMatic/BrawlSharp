@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BrawlSharp.Model
+namespace BrawlSharp.Model.Leaderboard
 {
-    public class ClubLeaderboard
+    public class ClubRankings
     {
         [JsonPropertyName("items")]
         public Club[] Clubs { get; set; }

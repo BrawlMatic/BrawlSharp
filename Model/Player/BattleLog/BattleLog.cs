@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BrawlSharp.Model
+namespace BrawlSharp.Model.Player.BattleLog
 {
-    public class PlayerBattleLog
+    public class BattleLog
     {
         [JsonPropertyName("items")]
         public Battle[] Battles { get; set; }
