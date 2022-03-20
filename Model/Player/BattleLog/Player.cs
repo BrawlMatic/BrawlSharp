@@ -12,5 +12,8 @@ namespace BrawlSharp.Model.Player.BattleLog
 
         [JsonPropertyName("brawler")]
         public Brawler Brawler { get; set; }
+
+        [JsonPropertyName("brawlers")]
+        public Brawler[] Brawlers { get; set; }
     }
 }
